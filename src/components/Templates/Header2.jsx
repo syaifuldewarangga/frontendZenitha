@@ -9,27 +9,36 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
+import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import CartIcon from '@mui/icons-material/ShoppingCart';
+import LoveIcon from '@mui/icons-material/Favorite';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import HomeIcon from '@mui/icons-material/Home';
+import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Avatar } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
+  // backgroundColor: alpha(theme.palette.common.white, 0.15),
+  // '&:hover': {
+  //   backgroundColor: alpha(theme.palette.common.white, 0.25),
+  // },
+  backgroundColor: 'gray',
+  marginRight: theme.spacing(5),
   marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
+  // width: '100%',
+  // [theme.breakpoints.up('sm')]: {
+  //   marginLeft: theme.spacing(3),
+  //   width: 'auto',
+  // },
+  width: 1100,
+  // borderWidth: 1,
+  // borderColor: 'black',
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -40,6 +49,8 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  // borderWidth: 1,
+  // borderColor: 'black',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -49,11 +60,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
+    // width: '100%',
+    // [theme.breakpoints.up('md')]: {
+    //   width: '20ch',
+    // },
+    width: 1000,
   },
+  // borderWidth: 1,
+  // borderColor: 'black',
 }));
 
 function Header2() {
@@ -156,82 +170,65 @@ function Header2() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: '#fff' }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
+          <Avatar
+            variant="rounded"
+            sx={{ bgcolor: 'black', width: 150, height: 50, mr: 3 }}
+          ></Avatar>
+          <IconButton sx={{ mr: 2 }}>
+            <HomeIcon sx={{ color: 'pink' }} />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            ZENITA
-          </Typography>
+
+          <Button sx={{ mr: 3 }}>
+            <Typography sx={{ fontWeight: 'bold', color: 'black', width: 120 }}>
+              PRODUK KAMI
+            </Typography>
+            <ArrowDownIcon sx={{ color: 'gray' }} />
+          </Button>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Cari Produk"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
+
+          <IconButton sx={{ mr: 3 }}>
+            <LoveIcon sx={{ color: 'black' }} />
+          </IconButton>
+          <IconButton sx={{ mr: 3 }}>
+            <CartIcon sx={{ color: 'black' }} />
+          </IconButton>
+          <Button
+            variant="outlined"
+            sx={{
+              backgroundColor: 'white',
+              color: 'black',
+              fontWeight: 'bold',
+              borderColor: 'black',
+              mr: 3,
+            }}
+          >
+            LOGIN
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              backgroundColor: 'pink',
+              color: 'white',
+              fontWeight: 'bold',
+              borderColor: 'pink',
+              flexDirection: 'column-reverse',
+            }}
+          >
+            DAFTAR
+          </Button>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
     </Box>
   );
 }
