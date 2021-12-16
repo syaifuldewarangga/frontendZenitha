@@ -180,7 +180,7 @@ function Header2() {
             <HomeIcon sx={{ color: 'pink' }} />
           </IconButton>
 
-          <Button sx={{ mr: 3 }}>
+          <Button sx={{ mr: 3 }} href="/detail-produk">
             <Typography sx={{ fontWeight: 'bold', color: 'black', width: 120 }}>
               PRODUK KAMI
             </Typography>

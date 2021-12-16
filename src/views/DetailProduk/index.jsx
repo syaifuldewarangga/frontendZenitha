@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import { Box, Container, IconButton } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './Body.css';
 import CartIcon from '@mui/icons-material/ShoppingCart';
 import FavIcon from '@mui/icons-material/FavoriteBorder';
 import FavIconFill from '@mui/icons-material/Favorite';
@@ -38,7 +37,7 @@ import ShareIcon from '@mui/icons-material/Share';
 //   boxShadow: 10,
 // }));
 
-function DetailPage() {
+function DetailProduk() {
   return (
     <>
       <Container fixed>
@@ -248,20 +247,34 @@ function DetailPage() {
                 <Box
                   sx={{
                     height: '33%',
-                    bgcolor: 'red',
                     display: 'flex',
                     flexDirection: 'row',
                   }}
                 >
-                  <Box sx={{ width: '50%', bgcolor: 'red' }}>
+                  <Box sx={{ width: '50%', mt: 1 }}>
                     <Typography>Quantity</Typography>
                   </Box>
-                  <Box sx={{ width: '50%', bgcolor: 'blue' }}>
+                  <Box sx={{ width: '50%', mt: 1 }}>
                     <Typography>Warna</Typography>
                   </Box>
                 </Box>
-                <Box sx={{ height: '33%', bgcolor: 'green' }}></Box>
-                <Box sx={{ height: '33%', bgcolor: 'blue' }}></Box>
+                <Box sx={{ height: '33%' }}>
+                  <Typography>Ukuran</Typography>
+                </Box>
+                <Box sx={{ height: '33%' }}>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      backgroundColor: 'pink',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'pink',
+                      flexDirection: 'column-reverse',
+                    }}
+                  >
+                    Tambah Keranjang
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Box>
@@ -1323,4 +1336,4 @@ function DetailPage() {
   );
 }
 
-export default DetailPage;
+export default DetailProduk;

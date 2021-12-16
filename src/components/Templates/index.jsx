@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Header2 from './Header2';
 import Body from './Body';
-import DetailPage from './DetailPage';
 import Footer from './Footer';
 import { Box } from '@mui/system';
 
@@ -13,8 +12,8 @@ function Templates() {
         <Header />
         <Header2 />
       </Box>
-      {/* <Body /> */}
-      <DetailPage />
+      <Body />
+      {/* <DetailPage /> */}
       <Footer />
     </>
   );
