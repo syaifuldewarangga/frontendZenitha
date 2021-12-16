@@ -2,30 +2,30 @@ import * as React from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Box, Container } from '@mui/material';
+import { Box, Container, IconButton } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 import './Body.css';
 import CartIcon from '@mui/icons-material/ShoppingCart';
 import FavIcon from '@mui/icons-material/FavoriteBorder';
 import FavIconFill from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
 
-const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 6,
-  slidesToScroll: 1,
-};
+// const settings = {
+//   dots: false,
+//   infinite: false,
+//   speed: 500,
+//   slidesToShow: 6,
+//   slidesToScroll: 1,
+// };
 
-const settings2 = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-};
+// const settings2 = {
+//   dots: false,
+//   infinite: false,
+//   speed: 500,
+//   slidesToShow: 2,
+//   slidesToScroll: 1,
+// };
 
 // const Item = styled(Paper)(({ theme }) => ({
 //   width: 150,
@@ -38,634 +38,244 @@ const settings2 = {
 //   boxShadow: 10,
 // }));
 
-function Body() {
+function DetailPage() {
   return (
     <>
-      <Box position="inherit" sx={{ flexGrow: 1 }}>
-        <CardMedia
-          component="img"
-          image="/assets/images/banner.jpg"
-          alt="home banner"
-          sx={{ paddingTop: 15 }}
-        />
-      </Box>
       <Container fixed>
-        <Box sx={{ height: 300, mt: 10, boxShadow: 2 }}>
-          <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
-            Kategori Produk
-          </Typography>
-
-          <div>
-            <Slider {...settings}>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/gamis.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Gamis
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/hijab.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Hijab
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/koko.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Koko
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/rok.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>Rok</Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/jaket.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Jaket
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/mukena.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Mukena
-                </Typography>
-              </div>
-
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/manset.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Manset
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/masker.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Masker
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/bayiibu.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Bayi dan Ibu
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/atasan.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Atasan
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/sarimbit.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Sarimbit
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/kurta.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Kurta
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/kulot.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Kulot
-                </Typography>
-              </div>
-              <div>
-                <CardMedia
-                  component="img"
-                  width="50"
-                  height="150"
-                  image="/assets/images/kategoriimg/rompisholat.png"
-                  alt="gamis icon"
-                  sx={{ paddingTop: 5 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
-                  Rompi Sholat
-                </Typography>
-              </div>
-            </Slider>
-          </div>
-        </Box>
-      </Container>
-
-      <Container fixed>
-        <Box sx={{ height: 500, mt: 10, boxShadow: 2 }}>
-          <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
-            Lagi Promo
-          </Typography>
+        <Box sx={{ height: 600, borderBottom: 1 }}>
           <Box
             sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              paddingTop: 17,
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: 12,
+                textDecoration: 'underline',
+              }}
+            >
+              BERANDA
+            </Typography>
+            <Typography sx={{ fontSize: 12, mx: 1 }}>/</Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                textDecoration: 'underline',
+              }}
+            >
+              DETAIL PRODUK
+            </Typography>
+            <Typography sx={{ fontSize: 12, mx: 1 }}>/</Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                color: 'gray',
+              }}
+            >
+              UMMI 11
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
               height: 400,
-              borderRadius: 2,
-              mt: 3,
-              display: 'flex',
-              flexDirection: 'row',
+              mt: 4,
             }}
           >
             <Box
               sx={{
-                width: '20%',
-                bgcolor: 'black',
-                borderTopLeftRadius: 10,
-                borderBottomLeftRadius: 10,
-                zIndex: '990',
-              }}
-            />
-
-            <Box
-              sx={{
-                width: '80%',
-                borderTopRightRadius: 10,
-                borderBottomRightRadius: 10,
+                width: '10%',
+                mr: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
               }}
             >
-              <div>
-                <Slider {...settings2}>
-                  <div>
-                    <Box
-                      sx={{
-                        width: '90%',
-                        height: 400,
-                        ml: 2,
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="50%"
-                        image="/assets/images/image 8.png"
-                        sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-                      />
-                      <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                        UMMI 11
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            paddingX: 2,
-                            fontWeight: 'bold',
-                            color: 'purple',
-                            fontSize: 13,
-                          }}
-                        >
-                          40%
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: 'bold',
-                            color: 'gray',
-                            fontSize: 13,
-                          }}
-                        >
-                          Rp.188.300
-                        </Typography>
-                      </Box>
-                      <Typography
-                        sx={{
-                          fontWeight: 'bold',
-                          color: 'red',
-                          fontSize: 20,
-                          paddingLeft: 1,
-                        }}
-                      >
-                        Rp.122.980
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                          ml: 1,
-                          mt: 1,
-                        }}
-                      >
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'white',
-                            color: 'black',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            mr: 3,
-                          }}
-                        >
-                          <CartIcon sx={{ color: 'purple' }} />
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'purple',
-                            color: 'white',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            flexDirection: 'column-reverse',
-                            textTransform: 'capitalize',
-                            width: 150,
-                          }}
-                        >
-                          Beli
-                        </Button>
-                      </Box>
-                    </Box>
-                  </div>
+              <Box
+                sx={{
+                  height: '23%',
+                  borderRadius: 1,
+                  bgcolor: 'white',
+                  border: 1,
+                  borderColor: 'purple',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  height: '23%',
+                  borderRadius: 1,
+                  bgcolor: 'white',
+                  border: 1,
+                  borderColor: 'purple',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  height: '23%',
+                  borderRadius: 1,
+                  bgcolor: 'white',
+                  border: 1,
+                  borderColor: 'purple',
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  height: '23%',
+                  borderRadius: 1,
+                  bgcolor: 'white',
+                  border: 1,
+                  borderColor: 'purple',
+                }}
+              ></Box>
+            </Box>
 
-                  <div>
-                    <Box
-                      sx={{
-                        width: '90%',
-                        height: 400,
-                        ml: 2,
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="50%"
-                        image="/assets/images/image 16.png"
-                        sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-                      />
-                      <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                        Long Blouse Lavina 29
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            paddingX: 2,
-                            fontWeight: 'bold',
-                            color: 'purple',
-                            fontSize: 13,
-                          }}
-                        >
-                          40%
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: 'bold',
-                            color: 'gray',
-                            fontSize: 13,
-                          }}
-                        >
-                          Rp.159.300
-                        </Typography>
-                      </Box>
-                      <Typography
-                        sx={{
-                          fontWeight: 'bold',
-                          color: 'red',
-                          fontSize: 20,
-                          paddingLeft: 1,
-                        }}
-                      >
-                        Rp.64.980
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                          ml: 1,
-                          mt: 1,
-                        }}
-                      >
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'white',
-                            color: 'black',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            mr: 3,
-                          }}
-                        >
-                          <CartIcon sx={{ color: 'purple' }} />
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'purple',
-                            color: 'white',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            flexDirection: 'column-reverse',
-                            textTransform: 'capitalize',
-                            width: 150,
-                          }}
-                        >
-                          Beli
-                        </Button>
-                      </Box>
-                    </Box>
-                  </div>
+            <Box sx={{ width: '45%', mr: 5 }}>
+              <CardMedia
+                component="img"
+                image="/assets/images/image 8.png"
+                sx={{
+                  height: '95%',
+                  border: 1,
+                  borderColor: 'purple',
+                  borderRadius: 1,
+                }}
+              />
+            </Box>
 
-                  <div>
-                    <Box
-                      sx={{
-                        width: '90%',
-                        height: 400,
-                        ml: 2,
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="50%"
-                        image="/assets/images/image 12.png"
-                        sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-                      />
-                      <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                        Long Blouse Adella 29
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            paddingX: 2,
-                            fontWeight: 'bold',
-                            color: 'purple',
-                            fontSize: 13,
-                          }}
-                        >
-                          40%
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: 'bold',
-                            color: 'gray',
-                            fontSize: 13,
-                          }}
-                        >
-                          Rp.259.300
-                        </Typography>
-                      </Box>
-                      <Typography
-                        sx={{
-                          fontWeight: 'bold',
-                          color: 'red',
-                          fontSize: 20,
-                          paddingLeft: 1,
-                        }}
-                      >
-                        Rp.134.980
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                          ml: 1,
-                          mt: 1,
-                        }}
-                      >
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'white',
-                            color: 'black',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            mr: 3,
-                          }}
-                        >
-                          <CartIcon sx={{ color: 'purple' }} />
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'purple',
-                            color: 'white',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            flexDirection: 'column-reverse',
-                            textTransform: 'capitalize',
-                            width: 150,
-                          }}
-                        >
-                          Beli
-                        </Button>
-                      </Box>
-                    </Box>
-                  </div>
-
-                  <div>
-                    <Box
-                      sx={{
-                        width: '90%',
-                        height: 400,
-                        ml: 2,
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="50%"
-                        image="/assets/images/image 13.png"
-                        sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-                      />
-                      <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                        Long Blouse Lavina 08
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            paddingX: 2,
-                            fontWeight: 'bold',
-                            color: 'purple',
-                            fontSize: 13,
-                          }}
-                        >
-                          40%
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: 'bold',
-                            color: 'gray',
-                            fontSize: 13,
-                          }}
-                        >
-                          Rp.159.300
-                        </Typography>
-                      </Box>
-                      <Typography
-                        sx={{
-                          fontWeight: 'bold',
-                          color: 'red',
-                          fontSize: 20,
-                          paddingLeft: 1,
-                        }}
-                      >
-                        Rp.64.980
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          height: 40,
-                          alignItems: 'center',
-                          ml: 1,
-                          mt: 1,
-                        }}
-                      >
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'white',
-                            color: 'black',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            mr: 3,
-                          }}
-                        >
-                          <CartIcon sx={{ color: 'purple' }} />
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            backgroundColor: 'purple',
-                            color: 'white',
-                            fontWeight: 'bold',
-                            borderColor: 'purple',
-                            flexDirection: 'column-reverse',
-                            textTransform: 'capitalize',
-                            width: 150,
-                          }}
-                        >
-                          Beli
-                        </Button>
-                      </Box>
-                    </Box>
-                  </div>
-                </Slider>
-              </div>
+            <Box sx={{ width: '45%' }}>
+              <Box
+                sx={{
+                  height: '30%',
+                  borderBottom: 1,
+                  borderBottomColor: 'lightgrey',
+                }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 17,
+                    }}
+                  >
+                    Kode Produk
+                  </Typography>
+                  <Typography sx={{ fontSize: 17, mx: 1 }}>:</Typography>
+                  <Typography
+                    sx={{
+                      fontSize: 17,
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    3393
+                  </Typography>
+                </Box>
+                <Typography sx={{ fontSize: 30, fontWeight: 'bold', my: 1 }}>
+                  Ummi 11 - Gamis Zenitha
+                </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 15,
+                    }}
+                  >
+                    Stok Tersedia
+                  </Typography>
+                  <Typography sx={{ fontSize: 15, mr: 1 }}>:</Typography>
+                  <Typography
+                    sx={{
+                      fontSize: 15,
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    3
+                  </Typography>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  height: '20%',
+                  borderBottom: 1,
+                  borderBottomColor: 'lightgrey',
+                }}
+              >
+                <Typography sx={{ fontSize: 17, my: 1, color: 'gray' }}>
+                  Harga:
+                </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 20,
+                      color: 'red',
+                      fontWeight: 'bold',
+                      mr: 1,
+                    }}
+                  >
+                    Rp112.980
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: 20,
+                      color: 'gray',
+                      fontWeight: 'bold',
+                      textDecoration: 'line-through',
+                    }}
+                  >
+                    Rp188.300
+                  </Typography>
+                </Box>
+                <IconButton sx={{ mt: -10, ml: 60 }}>
+                  <ShareIcon />
+                </IconButton>
+              </Box>
+              <Box sx={{ height: '50%' }}>
+                <Box
+                  sx={{
+                    height: '33%',
+                    bgcolor: 'red',
+                    display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                >
+                  <Box sx={{ width: '50%', bgcolor: 'red' }}>
+                    <Typography>Quantity</Typography>
+                  </Box>
+                  <Box sx={{ width: '50%', bgcolor: 'blue' }}>
+                    <Typography>Warna</Typography>
+                  </Box>
+                </Box>
+                <Box sx={{ height: '33%', bgcolor: 'green' }}></Box>
+                <Box sx={{ height: '33%', bgcolor: 'blue' }}></Box>
+              </Box>
             </Box>
           </Box>
         </Box>
       </Container>
 
       <Container fixed>
-        <Box sx={{ height: 600, mt: 10 }}>
+        <Box sx={{ height: 500, mt: 10, boxShadow: 2 }}></Box>
+      </Container>
+
+      <Container fixed>
+        <Box sx={{ height: 600, mt: 10, boxShadow: 2 }}>
           <Typography sx={{ fontWeight: 'bold', fontSize: 20, mb: 3 }}>
-            Produk terbaru
+            Produk Serupa
           </Typography>
           <Box
             sx={{
@@ -1124,7 +734,14 @@ function Body() {
               </Box>
             </Box>
           </Box>
+        </Box>
+      </Container>
 
+      <Container fixed>
+        <Box sx={{ height: 600, mt: 10, boxShadow: 2 }}>
+          <Typography sx={{ fontWeight: 'bold', fontSize: 20, mb: 3 }}>
+            Produk Serupa
+          </Typography>
           <Box
             sx={{
               height: '50%',
@@ -1132,7 +749,6 @@ function Body() {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              mt: 5,
             }}
           >
             <Box
@@ -1159,7 +775,7 @@ function Body() {
                   mt: 1,
                 }}
               >
-                <FavIconFill sx={{ color: 'red' }} />
+                <FavIcon sx={{ color: 'white' }} />
               </Box>
               <CardMedia
                 component="img"
@@ -1383,7 +999,7 @@ function Body() {
                   mt: 1,
                 }}
               >
-                <FavIconFill sx={{ color: 'red' }} />
+                <FavIcon sx={{ color: 'white' }} />
               </Box>
               <CardMedia
                 component="img"
@@ -1651,7 +1267,7 @@ function Body() {
             <Typography sx={{ fontWeight: 'bold', fontSize: 30, mb: 1 }}>
               BRAND YANG TERSEDIA DI TOKO KAMI
             </Typography>
-            <Typography>
+            {/* <Typography>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in
               malesuada lorem. Nam iaculis lacinia ligula, ut faucibus mi
               maximus quis. Vestibulum ante ipsum primis in faucibus orci luctus
@@ -1660,7 +1276,7 @@ function Body() {
               justo imperdiet mauris, facilisis gravida nibh risus ac leo. Donec
               quis nisl a mi venenatis sodales sit amet sed urna. Etiam massa
               tortor, suscipit nec ante feugiat, dapibus vulputate tortor.
-            </Typography>
+            </Typography> */}
           </Box>
           <Box sx={{ width: '50%' }}>
             <CardMedia
@@ -1707,4 +1323,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default DetailPage;
