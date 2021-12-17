@@ -69,7 +69,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   // borderColor: 'black',
 }));
 
-function Header2() {
+function HeaderBot() {
   // const [anchorEl, setAnchorEl] = React.useState(null);
   // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -176,7 +176,7 @@ function Header2() {
             src="/assets/images/logo 3.png"
             sx={{ bgcolor: 'black', width: 150, height: 50, mr: 3 }}
           />
-          <IconButton sx={{ mr: 2 }}>
+          <IconButton sx={{ mr: 2 }} href="/">
             <HomeIcon sx={{ color: 'pink' }} />
           </IconButton>
 
@@ -224,7 +224,7 @@ function Header2() {
               mr: 4,
             }}
           >
-            <IconButton sx={{ mr: 5 }}>
+            <IconButton sx={{ mr: 5 }} href="/cart-page">
               <CartIcon sx={{ color: 'black' }} />
             </IconButton>
           </Box>
@@ -258,4 +258,4 @@ function Header2() {
   );
 }
 
-export default Header2;
+export default HeaderBot;

@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './Body.css';
 import FBIcon from '@mui/icons-material/Facebook';
 import IGIcon from '@mui/icons-material/Instagram';
 import YTIcon from '@mui/icons-material/YouTube';

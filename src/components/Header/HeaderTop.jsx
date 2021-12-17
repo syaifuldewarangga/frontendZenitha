@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import ShippingIcon from '@mui/icons-material/LocalShipping';
 import IconButton from '@mui/material/IconButton';
 
-function Header() {
+function HeaderTop() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: '#fff' }}>
@@ -61,4 +61,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderTop;
