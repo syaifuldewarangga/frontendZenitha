@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -10,6 +11,21 @@ import YTIcon from '@mui/icons-material/YouTube';
 import Button from '@mui/material/Button';
 import ShippingIcon from '@mui/icons-material/LocalShipping';
 import IconButton from '@mui/material/IconButton';
+
+const styles = (theme) => ({
+  root: {
+    padding: theme.spacing(1),
+    [theme.breakpoints.down('md')]: {
+      backgroundColor: 'red',
+    },
+    [theme.breakpoints.up('md')]: {
+      backgroundColor: 'green',
+    },
+    [theme.breakpoints.up('lg')]: {
+      backgroundColor: 'blue',
+    },
+  },
+});
 
 function HeaderTop() {
   return (
