@@ -26,17 +26,6 @@ const settings2 = {
   slidesToScroll: 1,
 };
 
-// const Item = styled(Paper)(({ theme }) => ({
-//   width: 150,
-//   height: 150,
-//   // backgroundColor: 'blue',
-//   borderRadius: 3,
-//   borderWidth: 2,
-//   borderColor: 'black',
-//   textAlign: 'center',
-//   boxShadow: 10,
-// }));
-
 function Body() {
   return (
     <>

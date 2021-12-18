@@ -15,39 +15,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import MinIcon from '@mui/icons-material/Remove';
 import PlusIcon from '@mui/icons-material/Add';
 
-// const settings = {
-//   dots: false,
-//   infinite: false,
-//   speed: 500,
-//   slidesToShow: 6,
-//   slidesToScroll: 1,
-// };
-
-// const settings2 = {
-//   dots: false,
-//   infinite: false,
-//   speed: 500,
-//   slidesToShow: 2,
-//   slidesToScroll: 1,
-// };
-
-// const Item = styled(Paper)(({ theme }) => ({
-//   width: 150,
-//   height: 150,
-//   // backgroundColor: 'blue',
-//   borderRadius: 3,
-//   borderWidth: 2,
-//   borderColor: 'black',
-//   textAlign: 'center',
-//   boxShadow: 10,
-// }));
-
 function CartPage() {
-  // const [warna, setWarna] = React.useState('');
-
-  // const handleChange = (event) => {
-  //   setWarna(event.target.value);
-  // };
   return (
     <>
       <Container fixed>
@@ -170,6 +138,7 @@ function CartPage() {
                   </Typography>
                 </Box>
               </Box>
+
               <Box
                 sx={{
                   height: 30,
