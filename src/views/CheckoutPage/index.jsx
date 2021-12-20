@@ -4,6 +4,9 @@ import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 function CheckoutPage() {
   return (

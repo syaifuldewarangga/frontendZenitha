@@ -12,68 +12,64 @@ import Button from '@mui/material/Button';
 import ShippingIcon from '@mui/icons-material/LocalShipping';
 import IconButton from '@mui/material/IconButton';
 
-const styles = (theme) => ({
-  root: {
-    padding: theme.spacing(1),
-    [theme.breakpoints.down('md')]: {
-      backgroundColor: 'red',
-    },
-    [theme.breakpoints.up('md')]: {
-      backgroundColor: 'green',
-    },
-    [theme.breakpoints.up('lg')]: {
-      backgroundColor: 'blue',
-    },
+const Hilang = styled('div')(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
   },
-});
+  [theme.breakpoints.up('lg')]: {},
+}));
 
 function HeaderTop() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: '#fff' }}>
-        <Toolbar>
-          <EmailIcon sx={{ color: '#808080' }} />
-          <Typography
-            variant="h8"
-            component="div"
-            sx={{ flexGrow: 1, ml: 1, color: '#808080' }}
-          >
-            sample@gmail.com
-          </Typography>
-          <Button>
-            <ShippingIcon sx={{ color: '#808080' }} />
-            <Typography sx={{ ml: 1, color: '#808080' }}>CEK ORDER</Typography>
-          </Button>
-          <Button sx={{ ml: 5 }}>
-            <Typography sx={{ color: '#808080' }}>CEK STOK</Typography>
-          </Button>
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-            sx={{ ml: 18 }}
-          >
-            <FBIcon sx={{ color: '#808080' }} />
-          </IconButton>
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-            sx={{ ml: 1 }}
-          >
-            <IGIcon sx={{ color: '#808080' }} />
-          </IconButton>
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-            sx={{ ml: 1 }}
-          >
-            <YTIcon sx={{ color: '#808080' }} />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <Hilang>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" sx={{ backgroundColor: '#fff' }}>
+          <Toolbar>
+            <EmailIcon sx={{ color: '#808080' }} />
+            <Typography
+              variant="h8"
+              component="div"
+              sx={{ flexGrow: 1, ml: 1, color: '#808080' }}
+            >
+              sample@gmail.com
+            </Typography>
+            <Button>
+              <ShippingIcon sx={{ color: '#808080' }} />
+              <Typography sx={{ ml: 1, color: '#808080' }}>
+                CEK ORDER
+              </Typography>
+            </Button>
+            <Button sx={{ ml: 5 }}>
+              <Typography sx={{ color: '#808080' }}>CEK STOK</Typography>
+            </Button>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+              sx={{ ml: 18 }}
+            >
+              <FBIcon sx={{ color: '#808080' }} />
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+              sx={{ ml: 1 }}
+            >
+              <IGIcon sx={{ color: '#808080' }} />
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+              sx={{ ml: 1 }}
+            >
+              <YTIcon sx={{ color: '#808080' }} />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </Hilang>
   );
 }
 

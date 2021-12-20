@@ -2,8 +2,6 @@ import * as React from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-// import { styled } from '@mui/material/styles';
-// import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -11,35 +9,10 @@ import FBIcon from '@mui/icons-material/Facebook';
 import IGIcon from '@mui/icons-material/Instagram';
 import YTIcon from '@mui/icons-material/YouTube';
 import PhoneIcon from '@mui/icons-material/Phone';
-
-// const settings = {
-//   dots: false,
-//   infinite: false,
-//   speed: 500,
-//   slidesToShow: 6,
-//   slidesToScroll: 1,
-// };
-
-// const settings2 = {
-//   dots: false,
-//   infinite: false,
-//   speed: 500,
-//   slidesToShow: 2,
-//   slidesToScroll: 1,
-// };
-
-// const Item = styled(Paper)(({ theme }) => ({
-//   width: 150,
-//   height: 150,
-//   // backgroundColor: 'blue',
-//   borderRadius: 3,
-//   borderWidth: 2,
-//   borderColor: 'black',
-//   textAlign: 'center',
-//   boxShadow: 10,
-// }));
+import { useTheme } from '@mui/material/styles';
 
 function Footer() {
+  const theme = useTheme();
   return (
     <>
       <Box
@@ -47,6 +20,12 @@ function Footer() {
           height: 400,
           borderTop: 1,
           borderColor: 'black',
+          [theme.breakpoints.down('md')]: {
+            height: 400,
+            width: 935,
+            borderTop: 1,
+            borderColor: 'black',
+          },
         }}
       >
         <Box
@@ -57,9 +36,26 @@ function Footer() {
             alignSelf: 'center',
             ml: 25,
             flexDirection: 'row',
+            [theme.breakpoints.down('md')]: {
+              width: '90%',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              ml: 6,
+              justifyContent: 'space-between',
+            },
           }}
         >
-          <Box sx={{ width: '25%', flexDirection: 'column' }}>
+          <Box
+            sx={{
+              width: '25%',
+              flexDirection: 'column',
+              [theme.breakpoints.down('md')]: {
+                width: '22%',
+                flexDirection: 'column',
+              },
+            }}
+          >
             <CardMedia
               component="img"
               image="/assets/images/brandicon/logo1.png"
@@ -110,7 +106,16 @@ function Footer() {
             </Box>
           </Box>
 
-          <Box sx={{ width: '25%', flexDirection: 'column' }}>
+          <Box
+            sx={{
+              width: '25%',
+              flexDirection: 'column',
+              [theme.breakpoints.down('md')]: {
+                width: '22%',
+                flexDirection: 'column',
+              },
+            }}
+          >
             <Typography
               sx={{
                 fontWeight: 'bold',
@@ -128,7 +133,16 @@ function Footer() {
             <Typography sx={{ color: 'gray', mt: 1 }}>Madu Azura</Typography>
           </Box>
 
-          <Box sx={{ width: '25%', flexDirection: 'column' }}>
+          <Box
+            sx={{
+              width: '25%',
+              flexDirection: 'column',
+              [theme.breakpoints.down('md')]: {
+                width: '22%',
+                flexDirection: 'column',
+              },
+            }}
+          >
             <Typography
               sx={{
                 fontWeight: 'bold',
@@ -143,7 +157,16 @@ function Footer() {
             <Typography sx={{ color: 'gray', mt: 1 }}>FAQ</Typography>
           </Box>
 
-          <Box sx={{ width: '30%', flexDirection: 'column' }}>
+          <Box
+            sx={{
+              width: '30%',
+              flexDirection: 'column',
+              [theme.breakpoints.down('md')]: {
+                width: '22%',
+                flexDirection: 'column',
+              },
+            }}
+          >
             <Typography
               sx={{
                 fontWeight: 'bold',

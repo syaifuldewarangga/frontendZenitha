@@ -2,13 +2,14 @@ import * as React from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Box, Container } from '@mui/material';
+import { Box, Container, IconButton } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import CartIcon from '@mui/icons-material/ShoppingCart';
 import FavIcon from '@mui/icons-material/FavoriteBorder';
 import FavIconFill from '@mui/icons-material/Favorite';
+import { useTheme } from '@mui/material/styles';
 
 const settings = {
   dots: false,
@@ -27,16 +28,31 @@ const settings2 = {
 };
 
 function Body() {
+  const theme = useTheme();
   return (
     <>
-      <Box position="inherit" sx={{ flexGrow: 1 }}>
+      <Box
+        position="inherit"
+        sx={{
+          flexGrow: 1,
+          [theme.breakpoints.down('md')]: {
+            width: 935,
+          },
+        }}
+      >
         <CardMedia
           component="img"
           image="/assets/images/banner.jpg"
           alt="home banner"
-          sx={{ paddingTop: 15 }}
+          sx={{
+            paddingTop: 15,
+            [theme.breakpoints.down('md')]: {
+              paddingTop: 13,
+            },
+          }}
         />
       </Box>
+
       <Container fixed>
         <Box
           sx={{
@@ -44,6 +60,12 @@ function Body() {
             mt: 10,
             borderBottom: 1,
             borderBottomColor: 'lightgrey',
+            [theme.breakpoints.down('md')]: {
+              width: 900,
+              height: 300,
+              borderBottom: 1,
+              borderBottomColor: 'grey',
+            },
           }}
         >
           <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
@@ -61,7 +83,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 5,
+                    },
+                  }}
+                >
                   Gamis
                 </Typography>
               </div>
@@ -74,7 +105,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
                   Hijab
                 </Typography>
               </div>
@@ -87,7 +127,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 8,
+                    },
+                  }}
+                >
                   Koko
                 </Typography>
               </div>
@@ -100,7 +149,18 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>Rok</Typography>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
+                  Rok
+                </Typography>
               </div>
               <div>
                 <CardMedia
@@ -111,7 +171,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
                   Jaket
                 </Typography>
               </div>
@@ -124,7 +193,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 6,
+                    },
+                  }}
+                >
                   Mukena
                 </Typography>
               </div>
@@ -138,7 +216,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 6,
+                    },
+                  }}
+                >
                   Manset
                 </Typography>
               </div>
@@ -151,7 +238,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 6,
+                    },
+                  }}
+                >
                   Masker
                 </Typography>
               </div>
@@ -164,7 +260,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 4,
+                    },
+                  }}
+                >
                   Bayi dan Ibu
                 </Typography>
               </div>
@@ -177,7 +282,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
                   Atasan
                 </Typography>
               </div>
@@ -190,7 +304,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
                   Sarimbit
                 </Typography>
               </div>
@@ -203,7 +326,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
                   Kurta
                 </Typography>
               </div>
@@ -216,7 +348,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 7,
+                    },
+                  }}
+                >
                   Kulot
                 </Typography>
               </div>
@@ -229,7 +370,16 @@ function Body() {
                   alt="gamis icon"
                   sx={{ paddingTop: 5 }}
                 />
-                <Typography sx={{ fontWeight: 'bold', ml: 10 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    ml: 10,
+                    [theme.breakpoints.down('md')]: {
+                      fontWeight: 'bold',
+                      ml: 3,
+                    },
+                  }}
+                >
                   Rompi Sholat
                 </Typography>
               </div>
@@ -245,6 +395,12 @@ function Body() {
             mt: 10,
             borderBottom: 1,
             borderBottomColor: 'lightgrey',
+            [theme.breakpoints.down('md')]: {
+              width: 900,
+              height: 500,
+              borderBottom: 1,
+              borderBottomColor: 'grey',
+            },
           }}
         >
           <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
@@ -262,12 +418,18 @@ function Body() {
             <Box
               sx={{
                 width: '20%',
-                bgcolor: 'black',
                 borderTopLeftRadius: 10,
                 borderBottomLeftRadius: 10,
                 zIndex: '990',
               }}
-            />
+            >
+              <CardMedia
+                component="img"
+                height="100%"
+                image="/assets/images/logo-zeni-promo.jpg"
+                sx={{ borderTopLeftRadius: 5, borderBottomLeftRadius: 5 }}
+              />
+            </Box>
 
             <Box
               sx={{
@@ -665,7 +827,16 @@ function Body() {
       </Container>
 
       <Container fixed>
-        <Box sx={{ height: 600, mt: 10 }}>
+        <Box
+          sx={{
+            height: 600,
+            mt: 10,
+            [theme.breakpoints.down('md')]: {
+              width: 900,
+              height: 600,
+            },
+          }}
+        >
           <Typography sx={{ fontWeight: 'bold', fontSize: 20, mb: 3 }}>
             Produk terbaru
           </Typography>
@@ -700,9 +871,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIcon sx={{ color: 'white' }} />
+                <IconButton>
+                  <FavIcon sx={{ color: 'white' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -783,6 +969,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -812,9 +1007,25 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    // backgroundColor: 'blue',
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIconFill sx={{ color: 'red' }} />
+                <IconButton>
+                  <FavIconFill sx={{ color: 'red' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -895,6 +1106,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -924,9 +1144,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIcon sx={{ color: 'white' }} />
+                <IconButton>
+                  <FavIcon sx={{ color: 'white' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -1007,6 +1242,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -1036,9 +1280,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIcon sx={{ color: 'white' }} />
+                <IconButton>
+                  <FavIcon sx={{ color: 'white' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -1119,6 +1378,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -1159,9 +1427,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIconFill sx={{ color: 'red' }} />
+                <IconButton>
+                  <FavIconFill sx={{ color: 'red' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -1242,6 +1525,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -1271,9 +1563,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIconFill sx={{ color: 'red' }} />
+                <IconButton>
+                  <FavIconFill sx={{ color: 'red' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -1354,6 +1661,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -1383,9 +1699,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIconFill sx={{ color: 'red' }} />
+                <IconButton>
+                  <FavIconFill sx={{ color: 'red' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -1466,6 +1797,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -1495,9 +1835,24 @@ function Body() {
                   display: 'flex',
                   ml: 22,
                   mt: 1,
+                  [theme.breakpoints.down('md')]: {
+                    width: 40,
+                    height: 40,
+                    borderRadius: 40 / 2,
+                    bgcolor: 'gray',
+                    opacity: 0.5,
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    display: 'flex',
+                    ml: 16,
+                    mt: 1,
+                  },
                 }}
               >
-                <FavIcon sx={{ color: 'white' }} />
+                <IconButton>
+                  <FavIcon sx={{ color: 'white' }} />
+                </IconButton>
               </Box>
               <CardMedia
                 component="img"
@@ -1578,6 +1933,15 @@ function Body() {
                     flexDirection: 'column-reverse',
                     textTransform: 'capitalize',
                     width: 120,
+                    [theme.breakpoints.down('md')]: {
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      borderColor: 'purple',
+                      flexDirection: 'column-reverse',
+                      textTransform: 'capitalize',
+                      width: 70,
+                    },
                   }}
                 >
                   Beli
@@ -1590,7 +1954,17 @@ function Body() {
 
       <Container
         fixed
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          [theme.breakpoints.down('md')]: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: 900,
+          },
+        }}
       >
         <Button
           variant="outlined"
@@ -1617,6 +1991,12 @@ function Body() {
           height: 400,
           display: 'flex',
           flexDirection: 'row',
+          [theme.breakpoints.down('md')]: {
+            height: 400,
+            display: 'flex',
+            flexDirection: 'row',
+            width: 450,
+          },
         }}
       >
         <CardMedia
@@ -1639,12 +2019,18 @@ function Body() {
             height: 400,
             display: 'flex',
             flexDirection: 'row',
+            [theme.breakpoints.down('md')]: {
+              height: 400,
+              width: 900,
+              display: 'flex',
+              flexDirection: 'row',
+              my: 5,
+            },
           }}
         >
           <Box
             sx={{
               width: '50%',
-              // height: '100%',
               mr: 5,
               display: 'flex',
               justifyContent: 'center',
@@ -1666,21 +2052,62 @@ function Body() {
               tortor, suscipit nec ante feugiat, dapibus vulputate tortor.
             </Typography>
           </Box>
-          <Box sx={{ width: '50%' }}>
+
+          <Box
+            sx={{
+              width: '50%',
+              [theme.breakpoints.down('md')]: {
+                width: '50%',
+              },
+            }}
+          >
             <CardMedia
               component="img"
               image="/assets/images/brandicon/logo1.png"
-              sx={{ width: 120, height: 50, ml: 2, mt: 10 }}
+              sx={{
+                width: 120,
+                height: 50,
+                ml: 2,
+                mt: 10,
+                [theme.breakpoints.down('md')]: {
+                  width: 120,
+                  height: 50,
+                  ml: 2,
+                  mt: 5,
+                },
+              }}
             />
             <CardMedia
               component="img"
               image="/assets/images/brandicon/logo3.png"
-              sx={{ width: 125, height: 60, ml: 40, mt: -6 }}
+              sx={{
+                width: 125,
+                height: 60,
+                ml: 40,
+                mt: -6,
+                [theme.breakpoints.down('md')]: {
+                  width: 125,
+                  height: 60,
+                  ml: 35,
+                  mt: -6,
+                },
+              }}
             />
             <CardMedia
               component="img"
               image="/assets/images/brandicon/logo4.png"
-              sx={{ width: 150, height: 60, ml: 2, mt: 15 }}
+              sx={{
+                width: 150,
+                height: 60,
+                ml: 2,
+                mt: 15,
+                [theme.breakpoints.down('md')]: {
+                  width: 150,
+                  height: 60,
+                  ml: 2,
+                  mt: 20,
+                },
+              }}
             />
             <CardMedia
               component="img"
@@ -1691,6 +2118,13 @@ function Body() {
                 ml: 25,
                 mt: -25,
                 borderRadius: 10,
+                [theme.breakpoints.down('md')]: {
+                  width: 135,
+                  height: 140,
+                  ml: 18,
+                  mt: -27,
+                  borderRadius: 2,
+                },
               }}
             />
             <CardMedia
@@ -1702,6 +2136,13 @@ function Body() {
                 ml: 50,
                 mt: -10,
                 borderRadius: 10,
+                [theme.breakpoints.down('md')]: {
+                  width: 145,
+                  height: 145,
+                  ml: 35,
+                  mt: -4,
+                  borderRadius: 10,
+                },
               }}
             />
           </Box>

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,19 +13,21 @@ import LoveIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Avatar } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+import InvenIcon from '@mui/icons-material/Inventory';
 
-const useStyles = makeStyles((theme) => ({
-  ilang: {
+const Hilang = styled('div')(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
     display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
   },
-  homeBtn: {
-    mr: 200,
-    [theme.breakpoints.down('sm')]: {
-      mr: 100,
-    },
+  [theme.breakpoints.up('lg')]: {},
+}));
+
+const Muncul = styled('div')(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {},
+  [theme.breakpoints.up('lg')]: {
+    display: 'none',
   },
 }));
 
@@ -35,8 +36,11 @@ const Search = styled('div')(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: 'gray',
   marginRight: theme.spacing(5),
-  marginLeft: 0,
   width: 1070,
+  [theme.breakpoints.down('md')]: {
+    width: 540,
+    marginRight: theme.spacing(2),
+  },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -56,31 +60,63 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: 1000,
+    [theme.breakpoints.down('md')]: {
+      width: 470,
+    },
   },
 }));
 
 function HeaderBot() {
-  const classes = useStyles();
+  const theme = useTheme();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: '#fff' }}>
+      <AppBar
+        position="static"
+        sx={{
+          bgcolor: 'white',
+          [theme.breakpoints.down('md')]: {
+            width: '100%',
+            height: 100,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          },
+        }}
+      >
         <Toolbar>
-          <Avatar
-            variant="rounded"
-            src="/assets/images/logo 3.png"
-            sx={{ bgcolor: 'black', width: 150, height: 50, mr: 3 }}
-            // className={classes.ilang}
-          />
-          <IconButton href="/" sx={{ mr: 1 }}>
-            <HomeIcon sx={{ color: 'pink' }} />
-          </IconButton>
+          <Hilang>
+            <Avatar
+              variant="rounded"
+              src="/assets/images/logo 3.png"
+              sx={{ bgcolor: 'black', width: 150, height: 50, mr: 3 }}
+            />
+          </Hilang>
+          <Link to="/">
+            <IconButton sx={{ mr: 1 }}>
+              <HomeIcon sx={{ color: 'pink' }} />
+            </IconButton>
+          </Link>
 
-          <Button sx={{ mr: 3 }} href="/detail-produk">
-            <Typography sx={{ fontWeight: 'bold', color: 'black', width: 130 }}>
-              PRODUK KAMI
-            </Typography>
-            <ArrowDownIcon sx={{ color: 'gray' }} />
-          </Button>
+          <Muncul>
+            <Link to="/detail-produk">
+              <IconButton sx={{ mr: 1 }}>
+                <InvenIcon sx={{ color: 'pink' }} />
+              </IconButton>
+            </Link>
+          </Muncul>
+
+          <Hilang>
+            <Link to="/detail-produk">
+              <Button sx={{ mr: 3 }}>
+                <Typography
+                  sx={{ fontWeight: 'bold', color: 'black', width: 130 }}
+                >
+                  PRODUK KAMI
+                </Typography>
+                <ArrowDownIcon sx={{ color: 'gray' }} />
+              </Button>
+            </Link>
+          </Hilang>
 
           <Search>
             <SearchIconWrapper>
@@ -91,22 +127,26 @@ function HeaderBot() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box
-            sx={{
-              width: 40,
-              height: 40,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRight: 1,
-              borderRightColor: 'lightgrey',
-              mr: 5,
-            }}
-          >
-            <IconButton sx={{ mr: 5 }}>
-              <LoveIcon sx={{ color: 'black' }} />
-            </IconButton>
-          </Box>
+
+          <Hilang>
+            <Box
+              sx={{
+                width: 40,
+                height: 40,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRight: 1,
+                borderRightColor: 'lightgrey',
+                mr: 5,
+              }}
+            >
+              <IconButton sx={{ mr: 5 }}>
+                <LoveIcon sx={{ color: 'black' }} />
+              </IconButton>
+            </Box>
+          </Hilang>
+
           <Box
             sx={{
               width: 40,
@@ -117,12 +157,32 @@ function HeaderBot() {
               borderRight: 1,
               borderRightColor: 'lightgrey',
               mr: 4,
+              [theme.breakpoints.down('md')]: {
+                width: 40,
+                height: 40,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRight: 1,
+                borderRightColor: 'lightgrey',
+                mr: 2,
+              },
             }}
           >
-            <IconButton sx={{ mr: 5 }} href="/cart-page">
-              <CartIcon sx={{ color: 'black' }} />
-            </IconButton>
+            <Link to="/cart-page">
+              <IconButton
+                sx={{
+                  mr: 5,
+                  [theme.breakpoints.down('md')]: {
+                    mr: 0,
+                  },
+                }}
+              >
+                <CartIcon sx={{ color: 'black' }} />
+              </IconButton>
+            </Link>
           </Box>
+
           <Button
             variant="outlined"
             sx={{
