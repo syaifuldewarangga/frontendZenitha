@@ -17,6 +17,9 @@ import PlusIcon from '@mui/icons-material/Add';
 import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
 
 const Hilang = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -31,6 +34,191 @@ const Muncul = styled('div')(({ theme }) => ({
     display: 'none',
   },
 }));
+
+const ProdukItem = () => {
+  const theme = useTheme();
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  return (
+    <Card sx={{ boxShadow: 5 }}>
+      <Box
+        sx={{
+          width: 40,
+          height: 40,
+          borderRadius: 40 / 2,
+          bgcolor: 'gray',
+          opacity: 0.5,
+          position: 'absolute',
+          justifyContent: 'center',
+          alignItems: 'center',
+          display: 'flex',
+          ml: 27,
+          mt: 1,
+
+          [theme.breakpoints.down('md')]: {
+            width: 60,
+            height: 60,
+            borderRadius: 60 / 2,
+            bgcolor: 'gray',
+            opacity: 0.5,
+            position: 'absolute',
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            ml: 45,
+            mt: 1,
+          },
+        }}
+      >
+        <Checkbox
+          {...label}
+          icon={<FavIcon sx={{ color: 'white' }} />}
+          checkedIcon={<FavIconFill sx={{ color: 'red' }} />}
+        />
+      </Box>
+      <CardMedia
+        component="img"
+        height="250"
+        image="/assets/images/image 8.png"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography
+          sx={{
+            fontWeight: 'bold',
+            [theme.breakpoints.down('md')]: {
+              fontWeight: 'bold',
+              fontSize: 30,
+            },
+          }}
+        >
+          UMMI 11
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            height: 20,
+            alignItems: 'center',
+            my: 1,
+            [theme.breakpoints.down('md')]: {
+              display: 'flex',
+              flexDirection: 'row',
+              height: 50,
+              alignItems: 'center',
+              my: 1,
+            },
+          }}
+        >
+          <Typography
+            sx={{
+              paddingX: 1,
+              fontWeight: 'bold',
+              color: 'purple',
+              fontSize: 13,
+              [theme.breakpoints.down('md')]: {
+                paddingX: 1,
+                fontWeight: 'bold',
+                color: 'purple',
+                fontSize: 20,
+              },
+            }}
+          >
+            40%
+          </Typography>
+          <Typography
+            sx={{
+              fontWeight: 'bold',
+              color: 'gray',
+              fontSize: 13,
+              [theme.breakpoints.down('md')]: {
+                fontWeight: 'bold',
+                color: 'gray',
+                ml: 1,
+                fontSize: 20,
+              },
+            }}
+          >
+            Rp.188.300
+          </Typography>
+        </Box>
+        <Typography
+          sx={{
+            fontWeight: 'bold',
+            color: 'red',
+            fontSize: 20,
+            [theme.breakpoints.down('md')]: {
+              fontWeight: 'bold',
+              color: 'red',
+              fontSize: 30,
+            },
+          }}
+        >
+          Rp.188.300
+        </Typography>
+
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            height: 40,
+            alignItems: 'center',
+            mt: 2,
+          }}
+        >
+          <Button
+            variant="outlined"
+            sx={{
+              backgroundColor: 'white',
+              color: 'black',
+              fontWeight: 'bold',
+              borderColor: 'purple',
+              mr: 3,
+              [theme.breakpoints.down('md')]: {
+                backgroundColor: 'white',
+                color: 'black',
+                fontWeight: 'bold',
+                borderColor: 'purple',
+                height: 50,
+                width: 100,
+                mr: 3,
+              },
+            }}
+          >
+            <CartIcon sx={{ color: 'purple' }} />
+          </Button>
+          <Link to="/detail-produk">
+            <Button
+              variant="outlined"
+              sx={{
+                backgroundColor: 'purple',
+                color: 'white',
+                fontWeight: 'bold',
+                borderColor: 'purple',
+                flexDirection: 'column-reverse',
+                textTransform: 'capitalize',
+                width: 150,
+                [theme.breakpoints.down('md')]: {
+                  backgroundColor: 'purple',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  borderColor: 'purple',
+                  flexDirection: 'column-reverse',
+                  textTransform: 'capitalize',
+                  height: 50,
+                  width: 250,
+                },
+              }}
+            >
+              Beli
+            </Button>
+          </Link>
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 function CartPage() {
   const theme = useTheme();
@@ -330,15 +518,29 @@ function CartPage() {
                 >
                   Pindah ke Wishlist
                 </Typography>
-                <IconButton>
-                  <FavIconFill
-                    sx={{
-                      [theme.breakpoints.down('md')]: {
-                        fontSize: 30,
-                      },
-                    }}
-                  />
-                </IconButton>
+                <Checkbox
+                  {...label}
+                  icon={
+                    <FavIconFill
+                      sx={{
+                        [theme.breakpoints.down('md')]: {
+                          fontSize: 30,
+                        },
+                      }}
+                    />
+                  }
+                  checkedIcon={
+                    <FavIconFill
+                      sx={{
+                        color: 'red',
+                        [theme.breakpoints.down('md')]: {
+                          fontSize: 30,
+                          color: 'red',
+                        },
+                      }}
+                    />
+                  }
+                />
                 <Box
                   sx={{
                     height: 1,
@@ -599,11 +801,11 @@ function CartPage() {
       <Container fixed>
         <Box
           sx={{
-            height: 600,
+            height: 850,
             mt: 5,
             mb: 20,
             [theme.breakpoints.down('md')]: {
-              height: 600,
+              height: 2050,
               width: 900,
               mt: 40,
               mb: 20,
@@ -616,1094 +818,34 @@ function CartPage() {
           <Box
             sx={{
               height: '50%',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
             }}
           >
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIcon sx={{ color: 'white' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIconFill sx={{ color: 'red' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIcon sx={{ color: 'white' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIcon sx={{ color: 'white' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              height: '50%',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              mt: 5,
-            }}
-          >
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIconFill sx={{ color: 'red' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIconFill sx={{ color: 'red' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIconFill sx={{ color: 'red' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                width: '20%',
-                height: '100%',
-                ml: 2,
-                boxShadow: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 40 / 2,
-                  bgcolor: 'gray',
-                  opacity: 0.5,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  display: 'flex',
-                  ml: 22,
-                  mt: 1,
-                  [theme.breakpoints.down('md')]: {
-                    width: 40,
-                    height: 40,
-                    borderRadius: 40 / 2,
-                    bgcolor: 'gray',
-                    opacity: 0.5,
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    display: 'flex',
-                    ml: 16,
-                    mt: 1,
-                  },
-                }}
-              >
-                <FavIcon sx={{ color: 'white' }} />
-              </Box>
-              <CardMedia
-                component="img"
-                height="50%"
-                image="/assets/images/image 8.png"
-                sx={{ borderTopLeftRadius: 5, borderTopRightRadius: 5 }}
-              />
-              <Typography sx={{ fontWeight: 'bold', padding: 1 }}>
-                UMMI 11
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 20,
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  sx={{
-                    paddingX: 2,
-                    fontWeight: 'bold',
-                    color: 'purple',
-                    fontSize: 13,
-                  }}
-                >
-                  40%
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'gray',
-                    fontSize: 13,
-                  }}
-                >
-                  Rp.188.300
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  color: 'red',
-                  fontSize: 20,
-                  paddingLeft: 1,
-                }}
-              >
-                Rp.122.980
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  height: 40,
-                  alignItems: 'center',
-                  ml: 1,
-                  mt: 1,
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    mr: 3,
-                  }}
-                >
-                  <CartIcon sx={{ color: 'purple' }} />
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: 'purple',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    borderColor: 'purple',
-                    flexDirection: 'column-reverse',
-                    textTransform: 'capitalize',
-                    width: 120,
-                    [theme.breakpoints.down('md')]: {
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      borderColor: 'purple',
-                      flexDirection: 'column-reverse',
-                      textTransform: 'capitalize',
-                      width: 70,
-                    },
-                  }}
-                >
-                  Beli
-                </Button>
-              </Box>
-            </Box>
+            <Grid container spacing={3}>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+              <Grid item xs={6} md={3}>
+                {ProdukItem()}
+              </Grid>
+            </Grid>
           </Box>
         </Box>
       </Container>

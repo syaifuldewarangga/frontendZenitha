@@ -7,6 +7,7 @@ import DetailProduk from '../views/DetailProduk';
 import CartPage from '../views/CartPage';
 import TagihanPage from '../views/TagihanPage';
 import CheckoutPage from '../views/CheckoutPage';
+import RegisterPage from '../views/RegisterPage';
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
         <Route path="/cart-page" element={<CartPage />} />
         <Route path="/tagihan-page" element={<TagihanPage />} />
         <Route path="/checkout-page" element={<CheckoutPage />} />
+        <Route path="/register-page" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

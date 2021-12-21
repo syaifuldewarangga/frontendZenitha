@@ -16,6 +16,18 @@ import { Avatar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import InvenIcon from '@mui/icons-material/Inventory';
+import Modal from '@mui/material/Modal';
+import CloseIcon from '@mui/icons-material/Close';
+import TextField from '@mui/material/TextField';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import CardMedia from '@mui/material/CardMedia';
 
 const Hilang = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -66,8 +78,65 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  borderRadius: 10,
+  width: 400,
+  height: 450,
+  bgcolor: 'white',
+  boxShadow: 24,
+  p: 4,
+};
+
+const style2 = {
+  position: 'absolute',
+  top: '40%',
+  left: '49.5%',
+  transform: 'translate(-50%, -50%)',
+  borderRadius: 10,
+  width: '90%',
+  height: '50%',
+  bgcolor: 'white',
+  boxShadow: 24,
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  p: 4,
+};
+
 function HeaderBot() {
   const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -106,16 +175,14 @@ function HeaderBot() {
           </Muncul>
 
           <Hilang>
-            <Link to="/detail-produk">
-              <Button sx={{ mr: 3 }}>
-                <Typography
-                  sx={{ fontWeight: 'bold', color: 'black', width: 130 }}
-                >
-                  PRODUK KAMI
-                </Typography>
-                <ArrowDownIcon sx={{ color: 'gray' }} />
-              </Button>
-            </Link>
+            <Button sx={{ mr: 3 }} onClick={handleOpen2}>
+              <Typography
+                sx={{ fontWeight: 'bold', color: 'black', width: 130 }}
+              >
+                PRODUK KAMI
+              </Typography>
+              <ArrowDownIcon sx={{ color: 'gray' }} />
+            </Button>
           </Hilang>
 
           <Search>
@@ -192,23 +259,518 @@ function HeaderBot() {
               borderColor: 'black',
               mr: 3,
             }}
+            onClick={handleOpen}
           >
             LOGIN
           </Button>
+          <Link to="/register-page">
+            <Button
+              variant="outlined"
+              sx={{
+                backgroundColor: 'pink',
+                color: 'white',
+                fontWeight: 'bold',
+                borderColor: 'pink',
+                flexDirection: 'column-reverse',
+              }}
+            >
+              DAFTAR
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        // hideBackdrop="true"
+      >
+        <Box sx={style}>
+          <IconButton
+            sx={{
+              mb: 2,
+              ml: 45,
+              mt: -2,
+            }}
+            onClick={handleClose}
+          >
+            <CloseIcon sx={{ fontSize: 30 }} />
+          </IconButton>
+          <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
+            Masuk
+          </Typography>
+          <Typography
+            sx={{
+              mt: -3,
+              display: 'flex',
+              justifyContent: 'flex-end',
+              color: 'magenta',
+            }}
+          >
+            Daftar
+          </Typography>
+          <Typography sx={{ mt: 4 }}>Email/No.Ponsel</Typography>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            sx={{ width: '100%', mt: 1 }}
+          />
+          <Typography sx={{ mt: 4 }}>Kata Sandi</Typography>
+          <FormControl sx={{ mt: 1, width: '100%' }} variant="outlined">
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={values.showPassword ? 'text' : 'password'}
+              value={values.password}
+              onChange={handleChange('password')}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+            />
+          </FormControl>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox defaultChecked color="secondary" />}
+              label="Ingat Saya"
+            />
+          </FormGroup>
+          <Typography
+            sx={{
+              color: 'blue',
+              textDecorationLine: 'underline',
+              fontSize: 10,
+              mt: -3,
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}
+          >
+            Lupa Kata Sandi
+          </Typography>
           <Button
             variant="outlined"
             sx={{
-              backgroundColor: 'pink',
+              backgroundColor: 'magenta',
               color: 'white',
               fontWeight: 'bold',
-              borderColor: 'pink',
-              flexDirection: 'column-reverse',
+              borderColor: 'magenta',
+              mt: 5.5,
+              ml: 5.5,
+              borderRadius: 20,
+              width: 300,
+              height: 50,
+              textTransform: 'capitalize',
+              fontSize: 20,
             }}
           >
-            DAFTAR
+            Masuk
           </Button>
-        </Toolbar>
-      </AppBar>
+        </Box>
+      </Modal>
+
+      <Modal
+        open={open2}
+        onClose={handleClose2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        BackdropProps={{ style: { opacity: 0.1 } }}
+      >
+        <Box sx={style2}>
+          <Box sx={{ width: '18%' }}>
+            <Box
+              sx={{
+                height: 70,
+                borderBottom: 1,
+                borderBottomColor: 'gray',
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Box
+                sx={{
+                  width: '25%',
+                  borderRight: 1,
+                  borderRightColor: 'lightgrey',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  pr: 2,
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="/assets/images/brandicon/logo3.png"
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '75%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography sx={{ fontSize: 20, ml: 2, fontWeight: 'bold' }}>
+                  OVAL
+                </Typography>
+              </Box>
+            </Box>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Gamis</Typography>
+            <Typography sx={{ mt: 2, color: 'gray' }}>
+              Gamis & Jilbab
+            </Typography>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Jilbab</Typography>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Koko</Typography>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Aksesoris</Typography>
+          </Box>
+
+          <Box sx={{ width: '18%' }}>
+            <Box
+              sx={{
+                height: 70,
+                borderBottom: 1,
+                borderBottomColor: 'gray',
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Box
+                sx={{
+                  width: '25%',
+                  borderRight: 1,
+                  borderRightColor: 'lightgrey',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="/assets/images/brandicon/logo2.png"
+                  sx={{ width: 50, height: 50 }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '75%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography sx={{ fontSize: 20, ml: 2, fontWeight: 'bold' }}>
+                  KAYANA
+                </Typography>
+              </Box>
+            </Box>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Tunik</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Blouse</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Gamis</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Rok</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Hijab</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Aksesoris</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Masker</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Outer</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Outer & Rok</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Blouse & Rok</Typography>
+          </Box>
+
+          <Box sx={{ width: '18%' }}>
+            <Box
+              sx={{
+                height: 70,
+                borderBottom: 1,
+                borderBottomColor: 'gray',
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Box
+                sx={{
+                  width: '30%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mr: 1,
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="/assets/images/brandicon/logo1.png"
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '70%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderLeft: 1,
+                  borderLeftColor: 'lightgrey',
+                }}
+              >
+                <Typography sx={{ fontSize: 20, ml: 2, fontWeight: 'bold' }}>
+                  ZENITHA
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '49%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Gamis</Typography>
+              <Typography sx={{ color: 'gray' }}>Manset</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '50%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Blouse</Typography>
+              <Typography sx={{ color: 'gray' }}>Mukena</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '41%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Jilbab</Typography>
+              <Typography sx={{ color: 'gray' }}>Rok</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '67%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Dewasa</Typography>
+              <Typography sx={{ color: 'gray' }}>Gamis & Jilbab</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '71%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Koko</Typography>
+              <Typography sx={{ color: 'gray' }}>Blouse & Celana</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '44%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Aksesoris</Typography>
+              <Typography sx={{ color: 'gray' }}>Tunik</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '43%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Batita</Typography>
+              <Typography sx={{ color: 'gray' }}>Belia</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '48%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Outer</Typography>
+              <Typography sx={{ color: 'gray' }}>Kemko</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '58%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Baby</Typography>
+              <Typography sx={{ color: 'gray' }}>Zenita Kids</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '48%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Kids</Typography>
+              <Typography sx={{ color: 'gray' }}>Overall</Typography>
+            </Box>
+          </Box>
+
+          <Box sx={{ width: '18%' }}>
+            <Box
+              sx={{
+                height: 70,
+                borderBottom: 1,
+                borderBottomColor: 'gray',
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Box
+                sx={{
+                  width: '25%',
+                  borderRight: 1,
+                  borderRightColor: 'lightgrey',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="/assets/images/brandicon/logo5.png"
+                  sx={{ width: 50, height: 50 }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '75%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography sx={{ fontSize: 20, ml: 2, fontWeight: 'bold' }}>
+                  ADNIN
+                </Typography>
+              </Box>
+            </Box>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Rompi Sholat</Typography>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Kurta</Typography>
+            <Typography sx={{ mt: 2, color: 'gray' }}>Gamis</Typography>
+          </Box>
+
+          <Box sx={{ width: '18%' }}>
+            <Box
+              sx={{
+                height: 70,
+                borderBottom: 1,
+                borderBottomColor: 'gray',
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Box
+                sx={{
+                  width: '30%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mr: 1,
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="/assets/images/brandicon/logo4.png"
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: '70%',
+                  height: '85%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderLeft: 1,
+                  borderLeftColor: 'lightgrey',
+                }}
+              >
+                <Typography sx={{ fontSize: 20, ml: 2, fontWeight: 'bold' }}>
+                  PERMATA
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '59%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Dewasa</Typography>
+              <Typography sx={{ color: 'gray' }}>Berri Kids</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '50%',
+                mt: 1,
+              }}
+            >
+              <Typography sx={{ color: 'gray' }}>Sekolah</Typography>
+              <Typography sx={{ color: 'gray' }}>Batita</Typography>
+            </Box>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Baby</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Remaja</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Berri Dewasa</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>
+              Remaja/Sekolah
+            </Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Gamis</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Jilbab</Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>
+              Jilbab Sekolah
+            </Typography>
+            <Typography sx={{ mt: 1, color: 'gray' }}>Kids</Typography>
+          </Box>
+        </Box>
+      </Modal>
     </Box>
   );
 }

@@ -29,7 +29,7 @@ function CheckoutPage() {
       <Container fixed>
         <Box
           sx={{
-            height: 1300,
+            height: 1000,
             borderBottom: 1,
             borderBottomColor: 'lightgrey',
             [theme.breakpoints.down('md')]: {
@@ -119,7 +119,6 @@ function CheckoutPage() {
               mt: 5,
               display: 'flex',
               flexDirection: 'row',
-              //   bgcolor: 'green',
             }}
           >
             <Box sx={{ width: '40%' }}>
@@ -155,13 +154,15 @@ function CheckoutPage() {
                 </Typography>
               </Box>
             </Box>
+
             <Box sx={{ width: '60%' }}>
               <Box
                 sx={{
                   border: 1,
                   borderColor: 'gray',
                   borderRadius: 2,
-                  height: '60%',
+                  // height: '60%',
+                  height: '90%',
                 }}
               >
                 <Box
@@ -187,9 +188,10 @@ function CheckoutPage() {
                     }}
                   />
                 </Box>
+
                 <Box
                   sx={{
-                    height: '80%',
+                    height: '60%',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -263,6 +265,35 @@ function CheckoutPage() {
                     </Button>
                   </Box>
                 </Box>
+
+                <Box
+                  sx={{
+                    height: '20%',
+                    borderTop: 1,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Button
+                    sx={{
+                      width: '30%',
+                      height: '60%',
+                      border: 1,
+                      borderColor: 'magenta',
+                      bgcolor: 'magenta',
+                      textTransform: 'capitalize',
+                      mr: 3,
+                    }}
+                  >
+                    <Typography
+                      sx={{ color: 'white', fontWeight: 'bold', fontSize: 15 }}
+                    >
+                      Upload Bukti Transfer
+                    </Typography>
+                  </Button>
+                </Box>
               </Box>
 
               <Box
@@ -319,209 +350,10 @@ function CheckoutPage() {
             </Box>
           </Box>
 
-          <Box
-            sx={{
-              height: '30%',
-              [theme.breakpoints.down('md')]: {
-                height: '40%',
-              },
-            }}
-          >
-            <Typography
-              sx={{
-                fontWeight: 'bold',
-                fontSize: 20,
-                [theme.breakpoints.down('md')]: {
-                  fontWeight: 'bold',
-                  fontSize: 30,
-                },
-              }}
-            >
-              Cara Pembayaran
-            </Typography>
-            <Typography
-              sx={{
-                color: 'gray',
-                [theme.breakpoints.down('md')]: {
-                  color: 'gray',
-                  fontSize: 20,
-                  mt: 2,
-                },
-              }}
-            >
-              Pembayaran dapat juga dilakukan dengan metode dibawah ini dengan
-              biaya layanan sebagai berikut:
-            </Typography>
-            <Box
-              sx={{
-                height: '30%',
-                borderTop: 1,
-                mt: 1,
-                alignItems: 'center',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Box
-                sx={{
-                  height: '90%',
-                  width: '10%',
-                  borderRadius: 2,
-                  borderColor: 'blue',
-                  border: 1,
-                  [theme.breakpoints.down('md')]: {
-                    height: '70%',
-                    width: '15%',
-                    borderRadius: 2,
-                    borderColor: 'blue',
-                    border: 1,
-                  },
-                }}
-              />
-              <Typography
-                sx={{
-                  width: '70%',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                  [theme.breakpoints.down('md')]: {
-                    width: '70%',
-                    fontWeight: 'bold',
-                    fontSize: 25,
-                  },
-                }}
-              >
-                Bank BRI (Dicek Otomatis)
-              </Typography>
-              <Typography
-                sx={{
-                  color: 'gray',
-                  fontSize: 20,
-                  [theme.breakpoints.down('md')]: {
-                    color: 'gray',
-                    fontSize: 25,
-                  },
-                }}
-              >
-                Rp 1.000
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                height: '30%',
-                borderTop: 1,
-                mt: 1,
-                alignItems: 'center',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Box
-                sx={{
-                  height: '90%',
-                  width: '10%',
-                  borderRadius: 2,
-                  borderColor: 'blue',
-                  border: 1,
-                  [theme.breakpoints.down('md')]: {
-                    height: '70%',
-                    width: '15%',
-                    borderRadius: 2,
-                    borderColor: 'blue',
-                    border: 1,
-                  },
-                }}
-              />
-              <Typography
-                sx={{
-                  width: '70%',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                  [theme.breakpoints.down('md')]: {
-                    width: '70%',
-                    fontWeight: 'bold',
-                    fontSize: 25,
-                  },
-                }}
-              >
-                Bank BNI (Dicek Otomatis)
-              </Typography>
-              <Typography
-                sx={{
-                  color: 'gray',
-                  fontSize: 20,
-                  [theme.breakpoints.down('md')]: {
-                    color: 'gray',
-                    fontSize: 25,
-                  },
-                }}
-              >
-                Rp 1.000
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                height: '30%',
-                borderTop: 1,
-                mt: 1,
-                alignItems: 'center',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Box
-                sx={{
-                  height: '90%',
-                  width: '10%',
-                  borderRadius: 2,
-                  borderColor: 'blue',
-                  border: 1,
-                  [theme.breakpoints.down('md')]: {
-                    height: '70%',
-                    width: '15%',
-                    borderRadius: 2,
-                    borderColor: 'blue',
-                    border: 1,
-                  },
-                }}
-              />
-              <Typography
-                sx={{
-                  width: '70%',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                  [theme.breakpoints.down('md')]: {
-                    width: '70%',
-                    fontWeight: 'bold',
-                    fontSize: 25,
-                  },
-                }}
-              >
-                Bank BCA (Dicek Otomatis)
-              </Typography>
-              <Typography
-                sx={{
-                  color: 'gray',
-                  fontSize: 20,
-                  [theme.breakpoints.down('md')]: {
-                    color: 'gray',
-                    fontSize: 25,
-                  },
-                }}
-              >
-                Rp 1.000
-              </Typography>
-            </Box>
-          </Box>
-
           <Typography
             sx={{
               color: 'gray',
-              mt: 10,
+              mt: 30,
               [theme.breakpoints.down('md')]: {
                 color: 'gray',
                 mt: 12,
