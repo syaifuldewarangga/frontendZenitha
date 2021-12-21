@@ -5,10 +5,25 @@ import { Box, Container } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useTheme } from '@mui/material/styles';
-import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
+
+const Hilang = styled('div')(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.up('lg')]: {},
+}));
+
+const Muncul = styled('div')(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {},
+  [theme.breakpoints.up('lg')]: {
+    display: 'none',
+  },
+}));
 
 function CheckoutPage() {
+  const theme = useTheme();
   return (
     <>
       <Container fixed>
@@ -17,7 +32,10 @@ function CheckoutPage() {
             height: 1300,
             borderBottom: 1,
             borderBottomColor: 'lightgrey',
-            // bgcolor: 'blue',
+            [theme.breakpoints.down('md')]: {
+              height: 1600,
+              width: 900,
+            },
           }}
         >
           <Box
@@ -25,30 +43,69 @@ function CheckoutPage() {
               display: 'flex',
               flexDirection: 'row',
               paddingTop: 20,
+              [theme.breakpoints.down('md')]: {
+                display: 'flex',
+                flexDirection: 'row',
+                paddingTop: 17,
+              },
             }}
           >
             <Typography
               sx={{
                 fontSize: 12,
                 textDecoration: 'underline',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  textDecoration: 'underline',
+                },
               }}
             >
               BERANDA
             </Typography>
-            <Typography sx={{ fontSize: 12, mx: 1 }}>/</Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                mx: 1,
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  mx: 1,
+                },
+              }}
+            >
+              /
+            </Typography>
             <Typography
               sx={{
                 fontSize: 12,
                 color: 'gray',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  color: 'gray',
+                },
               }}
             >
               Keranjang
             </Typography>
-            <Typography sx={{ fontSize: 12, mx: 1 }}>/</Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                mx: 1,
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  mx: 1,
+                },
+              }}
+            >
+              /
+            </Typography>
             <Typography
               sx={{
                 fontSize: 12,
                 color: 'gray',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  color: 'gray',
+                },
               }}
             >
               Pembelian
@@ -67,11 +124,26 @@ function CheckoutPage() {
           >
             <Box sx={{ width: '40%' }}>
               <Box sx={{ mt: 3 }}>
-                <Typography sx={{ fontSize: 30, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    fontSize: 30,
+                    fontWeight: 'bold',
+                  }}
+                >
                   Lakukan Pembayaran Dalam
                 </Typography>
                 <Typography
-                  sx={{ fontSize: 30, fontWeight: 'bold', color: 'red' }}
+                  sx={{
+                    fontSize: 30,
+                    fontWeight: 'bold',
+                    color: 'red',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 30,
+                      fontWeight: 'bold',
+                      color: 'red',
+                      my: 3,
+                    },
+                  }}
                 >
                   23 : 52 : 46
                 </Typography>
@@ -202,23 +274,32 @@ function CheckoutPage() {
                   height: 70,
                 }}
               >
-                <Button
-                  sx={{
-                    width: '49%',
-                    border: 1,
-                    borderColor: 'magenta',
-                    bgcolor: 'white',
-                    textTransform: 'capitalize',
-                  }}
-                  href="/"
-                >
-                  <Typography
-                    sx={{ color: 'purple', fontWeight: 'bold', fontSize: 20 }}
+                <Link to="/">
+                  <Button
+                    sx={{
+                      width: 300,
+                      height: 70,
+                      border: 1,
+                      borderColor: 'magenta',
+                      bgcolor: 'white',
+                      textTransform: 'capitalize',
+                      [theme.breakpoints.down('md')]: {
+                        width: 250,
+                        height: 70,
+                        border: 1,
+                        borderColor: 'magenta',
+                        bgcolor: 'white',
+                        textTransform: 'capitalize',
+                      },
+                    }}
                   >
-                    Belanja Lagi
-                  </Typography>
-                </Button>
-
+                    <Typography
+                      sx={{ color: 'purple', fontWeight: 'bold', fontSize: 20 }}
+                    >
+                      Belanja Lagi
+                    </Typography>
+                  </Button>
+                </Link>
                 <Button
                   sx={{
                     width: '49%',
@@ -238,11 +319,36 @@ function CheckoutPage() {
             </Box>
           </Box>
 
-          <Box sx={{ height: '30%' }}>
-            <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
+          <Box
+            sx={{
+              height: '30%',
+              [theme.breakpoints.down('md')]: {
+                height: '40%',
+              },
+            }}
+          >
+            <Typography
+              sx={{
+                fontWeight: 'bold',
+                fontSize: 20,
+                [theme.breakpoints.down('md')]: {
+                  fontWeight: 'bold',
+                  fontSize: 30,
+                },
+              }}
+            >
               Cara Pembayaran
             </Typography>
-            <Typography sx={{ color: 'gray' }}>
+            <Typography
+              sx={{
+                color: 'gray',
+                [theme.breakpoints.down('md')]: {
+                  color: 'gray',
+                  fontSize: 20,
+                  mt: 2,
+                },
+              }}
+            >
               Pembayaran dapat juga dilakukan dengan metode dibawah ini dengan
               biaya layanan sebagai berikut:
             </Typography>
@@ -264,14 +370,39 @@ function CheckoutPage() {
                   borderRadius: 2,
                   borderColor: 'blue',
                   border: 1,
+                  [theme.breakpoints.down('md')]: {
+                    height: '70%',
+                    width: '15%',
+                    borderRadius: 2,
+                    borderColor: 'blue',
+                    border: 1,
+                  },
                 }}
               />
               <Typography
-                sx={{ width: '70%', fontWeight: 'bold', fontSize: 20 }}
+                sx={{
+                  width: '70%',
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    width: '70%',
+                    fontWeight: 'bold',
+                    fontSize: 25,
+                  },
+                }}
               >
                 Bank BRI (Dicek Otomatis)
               </Typography>
-              <Typography sx={{ color: 'gray', fontSize: 20 }}>
+              <Typography
+                sx={{
+                  color: 'gray',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    color: 'gray',
+                    fontSize: 25,
+                  },
+                }}
+              >
                 Rp 1.000
               </Typography>
             </Box>
@@ -294,14 +425,39 @@ function CheckoutPage() {
                   borderRadius: 2,
                   borderColor: 'blue',
                   border: 1,
+                  [theme.breakpoints.down('md')]: {
+                    height: '70%',
+                    width: '15%',
+                    borderRadius: 2,
+                    borderColor: 'blue',
+                    border: 1,
+                  },
                 }}
               />
               <Typography
-                sx={{ width: '70%', fontWeight: 'bold', fontSize: 20 }}
+                sx={{
+                  width: '70%',
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    width: '70%',
+                    fontWeight: 'bold',
+                    fontSize: 25,
+                  },
+                }}
               >
                 Bank BNI (Dicek Otomatis)
               </Typography>
-              <Typography sx={{ color: 'gray', fontSize: 20 }}>
+              <Typography
+                sx={{
+                  color: 'gray',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    color: 'gray',
+                    fontSize: 25,
+                  },
+                }}
+              >
                 Rp 1.000
               </Typography>
             </Box>
@@ -324,20 +480,57 @@ function CheckoutPage() {
                   borderRadius: 2,
                   borderColor: 'blue',
                   border: 1,
+                  [theme.breakpoints.down('md')]: {
+                    height: '70%',
+                    width: '15%',
+                    borderRadius: 2,
+                    borderColor: 'blue',
+                    border: 1,
+                  },
                 }}
               />
               <Typography
-                sx={{ width: '70%', fontWeight: 'bold', fontSize: 20 }}
+                sx={{
+                  width: '70%',
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    width: '70%',
+                    fontWeight: 'bold',
+                    fontSize: 25,
+                  },
+                }}
               >
                 Bank BCA (Dicek Otomatis)
               </Typography>
-              <Typography sx={{ color: 'gray', fontSize: 20 }}>
+              <Typography
+                sx={{
+                  color: 'gray',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    color: 'gray',
+                    fontSize: 25,
+                  },
+                }}
+              >
                 Rp 1.000
               </Typography>
             </Box>
           </Box>
 
-          <Typography sx={{ color: 'gray', mt: 10 }}>Catatan</Typography>
+          <Typography
+            sx={{
+              color: 'gray',
+              mt: 10,
+              [theme.breakpoints.down('md')]: {
+                color: 'gray',
+                mt: 12,
+                fontSize: 20,
+              },
+            }}
+          >
+            Catatan
+          </Typography>
           <Typography
             sx={{
               color: 'gray',
@@ -345,30 +538,97 @@ function CheckoutPage() {
               mt: 2,
               display: 'flex',
               flexDirection: 'row',
+              [theme.breakpoints.down('md')]: {
+                color: 'gray',
+                ml: 1,
+                mt: 2,
+                display: 'flex',
+                flexDirection: 'row',
+                fontSize: 20,
+              },
             }}
           >
             •
-            <Typography sx={{ fontWeight: 'bold', mx: 1 }}>
+            <Typography
+              sx={{
+                fontWeight: 'bold',
+                mx: 1,
+                [theme.breakpoints.down('md')]: {
+                  fontWeight: 'bold',
+                  mx: 1,
+                  fontSize: 20,
+                },
+              }}
+            >
               Simpan bukti pembayaran
             </Typography>
             yang sewaktu-waktu diperlukan jika terjadi kendala transaksi
           </Typography>
-          <Typography
-            sx={{
-              color: 'gray',
-              ml: 1,
-              mt: 2,
-              display: 'flex',
-              flexDirection: 'row',
-            }}
-          >
-            • Pesanan
-            <Typography sx={{ color: 'red', mx: 1 }}>
-              otomatis dibatalkan
+          <Hilang>
+            <Typography
+              sx={{
+                color: 'gray',
+                ml: 1,
+                mt: 2,
+                display: 'flex',
+                flexDirection: 'row',
+                [theme.breakpoints.down('md')]: {
+                  color: 'gray',
+                  ml: 1,
+                  mt: 2,
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: 20,
+                },
+              }}
+            >
+              • Pesanan
+              <Typography
+                sx={{
+                  color: 'red',
+                  mx: 1,
+                  [theme.breakpoints.down('md')]: {
+                    color: 'red',
+                    width: 240,
+                    fontSize: 20,
+                  },
+                }}
+              >
+                otomatis dibatalkan
+              </Typography>
+              apabila tidak melakukan pembayaran lebih dari 2 hari setelah kode
+              pembayaran diberikan
             </Typography>
-            apabila tidak melakukan pembayaran lebih dari 2 hari setelah kode
-            pembayaran diberikan
-          </Typography>
+          </Hilang>
+
+          <Muncul>
+            <Box sx={{ display: 'flex', flexDirection: 'row', ml: 1, mt: 1 }}>
+              <Typography sx={{ fontSize: 20, color: 'gray', width: 105 }}>
+                • Pesanan
+              </Typography>
+              <Typography
+                sx={{
+                  color: 'red',
+                  fontSize: 20,
+                  width: 190,
+                }}
+              >
+                otomatis dibatalkan
+              </Typography>
+              <Typography
+                sx={{
+                  color: 'gray',
+                  fontSize: 20,
+                  width: 600,
+                }}
+              >
+                apabila tidak melakukan pembayaran lebih dari 2 hari setelah
+              </Typography>
+            </Box>
+            <Typography sx={{ color: 'gray', fontSize: 20, ml: 3 }}>
+              kode pembayaran diberikan
+            </Typography>
+          </Muncul>
         </Box>
       </Container>
     </>

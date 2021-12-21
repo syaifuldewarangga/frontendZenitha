@@ -528,6 +528,7 @@ function CartPage() {
                         [theme.breakpoints.down('md')]: {
                           color: 'white',
                           fontSize: 25,
+                          fontWeight: 'bold',
                         },
                       }}
                     >

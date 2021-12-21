@@ -13,6 +13,8 @@ import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 function TagihanPage() {
   const [kurir, setKurir] = React.useState('');
@@ -20,6 +22,8 @@ function TagihanPage() {
   const handleChange = (event) => {
     setKurir(event.target.value);
   };
+
+  const theme = useTheme();
   return (
     <>
       <Container fixed>
@@ -28,6 +32,10 @@ function TagihanPage() {
             height: 1500,
             borderBottom: 1,
             borderBottomColor: 'lightgrey',
+            [theme.breakpoints.down('md')]: {
+              height: 1600,
+              width: 900,
+            },
           }}
         >
           <Box
@@ -35,37 +43,87 @@ function TagihanPage() {
               display: 'flex',
               flexDirection: 'row',
               paddingTop: 20,
+              [theme.breakpoints.down('md')]: {
+                display: 'flex',
+                flexDirection: 'row',
+                paddingTop: 17,
+              },
             }}
           >
             <Typography
               sx={{
                 fontSize: 12,
                 textDecoration: 'underline',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  textDecoration: 'underline',
+                },
               }}
             >
               BERANDA
             </Typography>
-            <Typography sx={{ fontSize: 12, mx: 1 }}>/</Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                mx: 1,
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  mx: 1,
+                },
+              }}
+            >
+              /
+            </Typography>
             <Typography
               sx={{
                 fontSize: 12,
                 color: 'gray',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  color: 'gray',
+                },
               }}
             >
               Keranjang
             </Typography>
-            <Typography sx={{ fontSize: 12, mx: 1 }}>/</Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                mx: 1,
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  mx: 1,
+                },
+              }}
+            >
+              /
+            </Typography>
             <Typography
               sx={{
                 fontSize: 12,
                 color: 'gray',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: 18,
+                  color: 'gray',
+                },
               }}
             >
               Tagihan
             </Typography>
           </Box>
 
-          <Typography sx={{ fontWeight: 'bold', fontSize: 30, mt: 5 }}>
+          <Typography
+            sx={{
+              fontWeight: 'bold',
+              fontSize: 30,
+              mt: 5,
+              [theme.breakpoints.down('md')]: {
+                fontWeight: 'bold',
+                fontSize: 40,
+                mt: 5,
+              },
+            }}
+          >
             Tagihan
           </Typography>
           <Box
@@ -88,28 +146,79 @@ function TagihanPage() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   ml: 4,
+                  [theme.breakpoints.down('md')]: {
+                    height: 70,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    borderBottom: 1,
+                    borderBottomColor: 'gray',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    ml: 4,
+                  },
                 }}
               >
-                <Typography sx={{ fontSize: 25, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    fontSize: 25,
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 35,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
                   Pengirim
                 </Typography>
               </Box>
               <Box sx={{ height: 300, ml: 4 }}>
-                <Typography sx={{ my: 3, fontSize: 20, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    my: 3,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      my: 3,
+                      fontSize: 25,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
                   Nama Pengirim
                 </Typography>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
-                  sx={{ width: '100%' }}
+                  sx={{
+                    width: '100%',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 30,
+                    },
+                  }}
                 />
-                <Typography sx={{ my: 3, fontSize: 20, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    my: 3,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      my: 3,
+                      fontSize: 25,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
                   No. Telpon Pengirim
                 </Typography>
                 <TextField
                   id="outlined-basic"
                   variant="outlined"
-                  sx={{ width: '100%' }}
+                  sx={{
+                    width: '100%',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 30,
+                    },
+                  }}
                 />
               </Box>
 
@@ -123,9 +232,29 @@ function TagihanPage() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   ml: 4,
+                  [theme.breakpoints.down('md')]: {
+                    height: 50,
+                    width: 850,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    borderBottom: 1,
+                    borderBottomColor: 'gray',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    ml: 4,
+                  },
                 }}
               >
-                <Typography sx={{ fontSize: 25, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    fontSize: 25,
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 35,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
                   Penerima
                 </Typography>
               </Box>
@@ -136,6 +265,13 @@ function TagihanPage() {
                   display: 'flex',
                   // justifyContent: 'center',
                   alignItems: 'center',
+                  [theme.breakpoints.down('md')]: {
+                    height: 100,
+                    ml: 4,
+                    display: 'flex',
+                    width: 850,
+                    alignItems: 'center',
+                  },
                 }}
               >
                 <FormControl component="fieldset">
@@ -165,9 +301,29 @@ function TagihanPage() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   ml: 4,
+                  [theme.breakpoints.down('md')]: {
+                    height: 50,
+                    width: 850,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    borderBottom: 1,
+                    borderBottomColor: 'gray',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    ml: 4,
+                  },
                 }}
               >
-                <Typography sx={{ fontSize: 20, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 25,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
                   Alamat Penerima
                 </Typography>
               </Box>
@@ -184,12 +340,54 @@ function TagihanPage() {
                     justifyContent: 'space-between',
                     borderBottom: 1,
                     borderBottomColor: 'lightgrey',
+                    [theme.breakpoints.down('md')]: {
+                      width: 850,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      borderBottom: 1,
+                      borderBottomColor: 'gray',
+                    },
                   }}
                 >
-                  <Typography sx={{ mt: 2 }}>Didi Maryadi</Typography>
-                  <Typography>082121212121</Typography>
-                  <Typography>Jl. Flamboyan No. 32</Typography>
-                  <Typography sx={{ mb: 2 }}>
+                  <Typography
+                    sx={{
+                      mt: 2,
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: 20,
+                        mt: 2,
+                      },
+                    }}
+                  >
+                    Didi Maryadi
+                  </Typography>
+                  <Typography
+                    sx={{
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: 20,
+                      },
+                    }}
+                  >
+                    082121212121
+                  </Typography>
+                  <Typography
+                    sx={{
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: 20,
+                      },
+                    }}
+                  >
+                    Jl. Flamboyan No. 32
+                  </Typography>
+                  <Typography
+                    sx={{
+                      mb: 2,
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: 20,
+                        mb: 2,
+                      },
+                    }}
+                  >
                     Pamulang, Kota Tanggerang Selatan, 15418
                   </Typography>
                 </Box>
@@ -201,9 +399,28 @@ function TagihanPage() {
                     bgcolor: 'white',
                     mt: 2,
                     textTransform: 'capitalize',
+                    [theme.breakpoints.down('md')]: {
+                      width: 200,
+                      height: 70,
+                      border: 1,
+                      borderColor: 'black',
+                      bgcolor: 'white',
+                      mt: 3,
+                      textTransform: 'capitalize',
+                    },
                   }}
                 >
-                  <Typography sx={{ color: 'black', fontWeight: 'bold' }}>
+                  <Typography
+                    sx={{
+                      color: 'black',
+                      fontWeight: 'bold',
+                      [theme.breakpoints.down('md')]: {
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: 20,
+                      },
+                    }}
+                  >
                     Pilih Alamat Lain
                   </Typography>
                 </Button>
@@ -219,9 +436,30 @@ function TagihanPage() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   ml: 4,
+                  [theme.breakpoints.down('md')]: {
+                    height: 50,
+                    width: 850,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    borderBottom: 1,
+                    borderBottomColor: 'gray',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    ml: 4,
+                    mt: 2,
+                  },
                 }}
               >
-                <Typography sx={{ fontSize: 20, fontWeight: 'bold' }}>
+                <Typography
+                  sx={{
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 25,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
                   Daftar Belanjaan
                 </Typography>
               </Box>
@@ -238,7 +476,14 @@ function TagihanPage() {
                     alignItems: 'center',
                     borderBottom: 1,
                     borderBottomColor: 'lightgrey',
-                    // bgcolor: 'red',
+                    [theme.breakpoints.down('md')]: {
+                      width: 850,
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      borderBottom: 1,
+                      borderBottomColor: 'gray',
+                    },
                   }}
                 >
                   <Box
@@ -248,7 +493,13 @@ function TagihanPage() {
                       display: 'flex',
                       flexDirection: 'row',
                       alignItems: 'center',
-                      // bgcolor: 'green',
+                      [theme.breakpoints.down('md')]: {
+                        height: 150,
+                        width: '60%',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      },
                     }}
                   >
                     <Box
@@ -260,6 +511,15 @@ function TagihanPage() {
                         border: 1,
                         borderColor: 'purple',
                         mr: 3,
+                        [theme.breakpoints.down('md')]: {
+                          width: 110,
+                          height: 110,
+                          borderRadius: 1,
+                          bgcolor: 'white',
+                          border: 1,
+                          borderColor: 'purple',
+                          mr: 3,
+                        },
                       }}
                     >
                       <CardMedia
@@ -275,20 +535,73 @@ function TagihanPage() {
                         display: 'flex',
                         justifyContent: 'center',
                         flexDirection: 'column',
+                        [theme.breakpoints.down('md')]: {
+                          width: 300,
+                          height: 150,
+                          display: 'flex',
+                          justifyContent: 'center',
+                          flexDirection: 'column',
+                        },
                       }}
                     >
-                      <Typography sx={{ fontWeight: 'bold', color: 'gray' }}>
+                      <Typography
+                        sx={{
+                          fontWeight: 'bold',
+                          color: 'gray',
+                          [theme.breakpoints.down('md')]: {
+                            fontWeight: 'bold',
+                            color: 'gray',
+                            fontSize: 20,
+                          },
+                        }}
+                      >
                         UMMI 11 - Gamis Zenitha
                       </Typography>
-                      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                        <Typography sx={{ mr: 3, color: 'magenta' }}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          [theme.breakpoints.down('md')]: {
+                            display: 'flex',
+                            flexDirection: 'row',
+                            my: 2,
+                          },
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            mr: 3,
+                            color: 'magenta',
+                            [theme.breakpoints.down('md')]: {
+                              mr: 3,
+                              color: 'magenta',
+                              fontSize: 20,
+                            },
+                          }}
+                        >
                           Warna: Abu - Abu
                         </Typography>
-                        <Typography sx={{ color: 'magenta' }}>
+                        <Typography
+                          sx={{
+                            color: 'magenta',
+                            [theme.breakpoints.down('md')]: {
+                              color: 'magenta',
+                              fontSize: 20,
+                            },
+                          }}
+                        >
                           Ukuran: L
                         </Typography>
                       </Box>
-                      <Typography sx={{ fontWeight: 'bold' }}>
+                      <Typography
+                        sx={{
+                          fontWeight: 'bold',
+                          [theme.breakpoints.down('md')]: {
+                            fontWeight: 'bold',
+                            fontSize: 20,
+                          },
+                        }}
+                      >
                         Rp 112.980
                       </Typography>
                     </Box>
@@ -296,7 +609,14 @@ function TagihanPage() {
 
                   <Box sx={{ width: '100%' }}>
                     <FormControl sx={{ width: '100%' }}>
-                      <InputLabel id="demo-simple-select-helper-label">
+                      <InputLabel
+                        id="demo-simple-select-helper-label"
+                        sx={{
+                          [theme.breakpoints.down('md')]: {
+                            fontSize: 20,
+                          },
+                        }}
+                      >
                         Opsi Kurir Ekspedisi
                       </InputLabel>
                       <Select
@@ -306,10 +626,46 @@ function TagihanPage() {
                         label="Opsi Kurir Ekspedisi"
                         inputProps={{ 'aria-label': 'Without label' }}
                       >
-                        <MenuItem value={'jneoke'}>JNE OKE</MenuItem>
-                        <MenuItem value={'jnereg'}>JEN REG</MenuItem>
-                        <MenuItem value={'jneyes'}>JNE YES</MenuItem>
-                        <MenuItem value={'jntez'}>JNT EZ</MenuItem>
+                        <MenuItem
+                          value={'jneoke'}
+                          sx={{
+                            [theme.breakpoints.down('md')]: {
+                              fontSize: 20,
+                            },
+                          }}
+                        >
+                          JNE OKE
+                        </MenuItem>
+                        <MenuItem
+                          value={'jnereg'}
+                          sx={{
+                            [theme.breakpoints.down('md')]: {
+                              fontSize: 20,
+                            },
+                          }}
+                        >
+                          JEN REG
+                        </MenuItem>
+                        <MenuItem
+                          value={'jneyes'}
+                          sx={{
+                            [theme.breakpoints.down('md')]: {
+                              fontSize: 20,
+                            },
+                          }}
+                        >
+                          JNE YES
+                        </MenuItem>
+                        <MenuItem
+                          value={'jntez'}
+                          sx={{
+                            [theme.breakpoints.down('md')]: {
+                              fontSize: 20,
+                            },
+                          }}
+                        >
+                          JNT EZ
+                        </MenuItem>
                       </Select>
                     </FormControl>
                   </Box>
@@ -321,10 +677,36 @@ function TagihanPage() {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
+                    [theme.breakpoints.down('md')]: {
+                      height: 60,
+                      width: 850,
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    },
                   }}
                 >
-                  <Typography sx={{ fontWeight: 'bold' }}>Subtotal</Typography>
-                  <Typography sx={{ fontWeight: 'bold' }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 'bold',
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                      },
+                    }}
+                  >
+                    Subtotal
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontWeight: 'bold',
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                      },
+                    }}
+                  >
                     Rp 112.980
                   </Typography>
                 </Box>
@@ -332,7 +714,16 @@ function TagihanPage() {
             </Box>
 
             <Box sx={{ width: '30%', ml: 5 }}>
-              <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>
+              <Typography
+                sx={{
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: 30,
+                    fontWeight: 'bold',
+                  },
+                }}
+              >
                 Total Belanja
               </Typography>
               <Box
@@ -345,12 +736,42 @@ function TagihanPage() {
                   borderBottom: 1,
                   borderBottomStyle: 'dashed',
                   borderBottomColor: 'gray',
+                  [theme.breakpoints.down('md')]: {
+                    height: 50,
+                    width: 300,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    borderBottom: 1,
+                    borderBottomStyle: 'dashed',
+                    borderBottomColor: 'gray',
+                    mt: 2,
+                  },
                 }}
               >
-                <Typography sx={{ color: 'gray' }}>
+                <Typography
+                  sx={{
+                    color: 'gray',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 17,
+                      color: 'gray',
+                    },
+                  }}
+                >
                   Total Harga (1 Produk)
                 </Typography>
-                <Typography sx={{ color: 'gray' }}>Rp 112.980</Typography>
+                <Typography
+                  sx={{
+                    color: 'gray',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 17,
+                      color: 'gray',
+                    },
+                  }}
+                >
+                  Rp 112.980
+                </Typography>
               </Box>
               <Box
                 sx={{
@@ -359,23 +780,74 @@ function TagihanPage() {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
+                  [theme.breakpoints.down('md')]: {
+                    height: 50,
+                    width: 300,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+
+                    borderBottomColor: 'gray',
+                  },
                 }}
               >
-                <Typography sx={{ fontWeight: 'bold' }}>Total Harga</Typography>
-                <Typography sx={{ fontWeight: 'bold' }}>Rp 112.980</Typography>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 17,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
+                  Total Harga
+                </Typography>
+                <Typography
+                  sx={{
+                    fontWeight: 'bold',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 17,
+                      fontWeight: 'bold',
+                    },
+                  }}
+                >
+                  Rp 112.980
+                </Typography>
               </Box>
-              <Button
-                sx={{
-                  width: '100%',
-                  border: 1,
-                  borderColor: 'magenta',
-                  bgcolor: 'magenta',
-                  mt: 3,
-                }}
-                href="/checkout-page"
-              >
-                <Typography sx={{ color: 'white' }}>CHECKOUT (1)</Typography>
-              </Button>
+              <Link to="/checkout-page">
+                <Button
+                  sx={{
+                    width: '100%',
+                    border: 1,
+                    borderColor: 'magenta',
+                    bgcolor: 'magenta',
+                    mt: 3,
+                    [theme.breakpoints.down('md')]: {
+                      width: '100%',
+                      height: 60,
+                      border: 1,
+                      borderColor: 'magenta',
+                      bgcolor: 'magenta',
+                      mt: 3,
+                      ml: 3,
+                    },
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: 'white',
+                      [theme.breakpoints.down('md')]: {
+                        color: 'white',
+                        fontSize: 20,
+                        fontWeight: 'bold',
+                      },
+                    }}
+                  >
+                    CHECKOUT (1)
+                  </Typography>
+                </Button>
+              </Link>
             </Box>
           </Box>
         </Box>
