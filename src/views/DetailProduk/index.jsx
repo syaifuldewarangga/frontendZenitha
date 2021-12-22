@@ -22,6 +22,9 @@ import Checkbox from '@mui/material/Checkbox';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 const Hilang = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -220,6 +223,39 @@ const ProdukItem = () => {
   );
 };
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ pt: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 function DetailProduk() {
@@ -230,6 +266,13 @@ function DetailProduk() {
   };
 
   const theme = useTheme();
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChangeTabs = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <Container fixed>
@@ -1110,6 +1153,7 @@ function DetailProduk() {
             borderBottom: 1,
             mt: 2,
             borderBottomColor: 'lightgrey',
+            // bgcolor: 'green',
             [theme.breakpoints.down('md')]: {
               height: 450,
               width: 900,
@@ -1119,7 +1163,71 @@ function DetailProduk() {
             },
           }}
         >
-          <Box
+          <Box sx={{ width: '100%' }}>
+            <Box>
+              <Tabs
+                value={value}
+                onChange={handleChangeTabs}
+                aria-label="basic tabs example"
+                textColor="secondary"
+                indicatorColor="secondary"
+              >
+                <Tab
+                  label="Deskripsi"
+                  {...a11yProps(0)}
+                  sx={{ textTransform: 'capitalize', mr: 10, fontSize: 20 }}
+                />
+                <Tab
+                  label="Detail"
+                  {...a11yProps(1)}
+                  sx={{ textTransform: 'capitalize', fontSize: 20 }}
+                />
+              </Tabs>
+            </Box>
+            <TabPanel value={value} index={0}>
+              <Typography sx={{ color: 'blue', fontSize: 20 }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                in malesuada lorem. Nam iaculis lacinia ligula, ut faucibus mi
+                maximus quis. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia curae; Pellentesque luctus ac
+                nunc vitae molestie. Nullam viverra, elit vel lobortis lacinia,
+                orci justo imperdiet mauris, facilisis gravida nibh risus ac
+                leo. Donec quis nisl a mi venenatis sodales sit amet sed urna.
+                Etiam massa tortor, suscipit nec ante feugiat, dapibus vulputate
+                tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce in malesuada lorem. Nam iaculis lacinia ligula, ut
+                faucibus mi maximus quis. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia curae;
+                Pellentesque luctus ac nunc vitae molestie. Nullam viverra, elit
+                vel lobortis lacinia, orci justo imperdiet mauris, facilisis
+                gravida nibh risus ac leo. Donec quis nisl a mi venenatis
+                sodales sit amet sed urna. Etiam massa tortor, suscipit nec ante
+                feugiat, dapibus vulputate tortor.
+              </Typography>
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <Typography sx={{ color: 'green', fontSize: 20 }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                in malesuada lorem. Nam iaculis lacinia ligula, ut faucibus mi
+                maximus quis. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia curae; Pellentesque luctus ac
+                nunc vitae molestie. Nullam viverra, elit vel lobortis lacinia,
+                orci justo imperdiet mauris, facilisis gravida nibh risus ac
+                leo. Donec quis nisl a mi venenatis sodales sit amet sed urna.
+                Etiam massa tortor, suscipit nec ante feugiat, dapibus vulputate
+                tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce in malesuada lorem. Nam iaculis lacinia ligula, ut
+                faucibus mi maximus quis. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia curae;
+                Pellentesque luctus ac nunc vitae molestie. Nullam viverra, elit
+                vel lobortis lacinia, orci justo imperdiet mauris, facilisis
+                gravida nibh risus ac leo. Donec quis nisl a mi venenatis
+                sodales sit amet sed urna. Etiam massa tortor, suscipit nec ante
+                feugiat, dapibus vulputate tortor.
+              </Typography>
+            </TabPanel>
+          </Box>
+          {/* <Box
             sx={{
               height: 50,
               display: 'flex',
@@ -1173,7 +1281,7 @@ function DetailProduk() {
             mauris, facilisis gravida nibh risus ac leo. Donec quis nisl a mi
             venenatis sodales sit amet sed urna. Etiam massa tortor, suscipit
             nec ante feugiat, dapibus vulputate tortor.
-          </Typography>
+          </Typography> */}
         </Box>
       </Container>
 
